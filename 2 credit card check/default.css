@@ -1,0 +1,83 @@
+	header,
+		footer {
+			padding: 10px;
+		}
+		
+		body {
+			font-family: 'Noto Sans', sans-serif;
+		}
+		
+		h2 {
+			font-weight: bold;
+		}
+		
+		img.mclogoheader {
+			margin: 15px 0px;
+			width: 150px;
+			height: auto;
+		}
+		img.visalogoheader {
+			margin: 15px 0px;
+			width: 120px;
+			height: auto;
+		}
+		
+		img.mclogoform {
+			width: 120px;
+			height: auto;
+			margin: 10px 0px;
+		}
+		
+		form.loginform,
+		div.toplogo {
+			padding: 10px;
+			border: 2px solid lightgray;
+		}
+		
+		.green {}
+		
+		div.toplogo {
+			margin-bottom: 10px;
+		}
+		
+		div.headerlinks,
+		div.footerlinks {
+			padding-top: 20px;
+		}
+		
+		p.forgot {
+			font-size: 0.8em;
+			margin-top: 10px;
+		}
+		
+		div.log, div.logcode {
+			font-size: 0.8em;
+			color: red
+		}
+		
+		.headerlinks a,
+		.footerlinks a {
+			font-size: 0.8em
+		}
+		
+		.footerlinks {
+			display: none
+		}
+		.selectoverride {padding:0px 5px 15px 0px}
+		
+		@media all and (max-width: 992px) {
+			.toplogo {
+				display: none;
+			}
+			.headerlinks {
+				display: none
+			}
+			.footerlinks {
+				display: block
+			}
+			
+			.selectoverride {padding:0px 15px 15px 0px}
+			
+		}
+		
+		h3.subtitlebox {padding:10px 0px; text-align:center; margin:0px;}
